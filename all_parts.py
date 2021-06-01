@@ -57,177 +57,172 @@ while len(nodes) > 1:
 huffmanCode = huffman_code_tree(nodes[0][0])
 
 
-
-#print(part1())
-
 # part2
 
-unique = {}
-for (char, _) in freq:
-    unique[char] = str(huffmanCode[char])
-
-#print('\n' + 'Unique characters list: ')
-#print(unique)
-
-encoded = ''
-encoded_dict = {}
-key = 0
-for i in string:
+def unique_dict(freq):
+    unique = {}
     for (char, _) in freq:
-        if char == i:
-            encoded += huffmanCode[char]
-            encoded_dict[key] = huffmanCode[char]
-            key += 1
+        unique[char] = str(huffmanCode[char])
+    return unique
 
-#print('\n' + 'Encoded text:')
-#print(encoded + '\n')
+
+def part2():
+    encoded = ''
+    for i in string:
+        for (char, _) in freq:
+            if char == i:
+                encoded += huffmanCode[char]
+                
+    return encoded  # encoded binary sequence
 
 # part3
 
-def part3(str):
+def part3(s):
+
+    encoded_dict = {}
+    key = 0
+    for i in string:
+        for (char, _) in freq:
+            if char == i:
+                encoded_dict[key] = huffmanCode[char]
+                key += 1
 
     decoded = ''
-
-    #for i in encoded.split(' '):
-    #    for key, value in unique.items():
-    #        if i == value:
-    #            decoded += key
+    unique = unique_dict(freq)
 
     for i in encoded_dict.values():
         for key, value in unique.items():
             if i == value:
                 decoded += key
 
-    print('\n' + 'Decoded text:')
-    print(decoded)
+    return decoded  # decoded text
+
+
+print('\npart 2\n')
+print(part2())
 
 
 #part4
+def part4():
+    encoded = part2()
+    split_strings = wrap(encoded, 4)
+    result_arr = []
+    for i in split_strings:
+        
+        r1 = str(int(i[0]) ^ int(i[1]) ^ int(i[2]))
+        r2 = str(int(i[1]) ^ int(i[2]) ^ int(i[3]))
+        r3 = str(int(i[0]) ^ int(i[1]) ^ int(i[3]))
+        i += r1 + r2 + r3
+        result_arr.append(i)
 
-split_strings = wrap(encoded, 4)
-#print(split_strings)
-result_arr = []
-for i in split_strings:
-    
-    r1 = str(int(i[0]) ^ int(i[1]) ^ int(i[2]))
-    r2 = str(int(i[1]) ^ int(i[2]) ^ int(i[3]))
-    r3 = str(int(i[0]) ^ int(i[1]) ^ int(i[3]))
-    i += r1 + r2 + r3
-    result_arr.append(i)
+    ready_for_checking = ''
+    for i in result_arr:
+        ready_for_checking += i
 
-#print('\n')
-#print(result_arr)
-
-ready_for_checking = ''
-for i in result_arr:
-    ready_for_checking += i
-
-#print('\n')
-#print(ready_for_checking)
+    return ready_for_checking  # binary sequence with r1, r2, r3
 
 
-#  part5 
 
-bc_to_arr = wrap(ready_for_checking, 7)
+print('\npart4\n')
+print(part4())
 
-#print(bc_to_arr)  # original binary code to array
-print('\n')
 
-errors_arr = []  # with errors
-temp_str = ''
-for i in bc_to_arr:
-  index_of_error = randint(0, 6)
-  if i[index_of_error] == '1':
-    temp_str = i[:index_of_error] + '0' + i[index_of_error + 1:]
-    errors_arr.append(temp_str)
-  else:
-    temp_str = i[:index_of_error] + '1' + i[index_of_error + 1:]
-    errors_arr.append(temp_str)
+# #  part5 
 
-#print(errors_arr)  # array with random errors
-print('\n')
+def part5():
 
-error_binary_code = ''
-for i in errors_arr:
-    error_binary_code += i
+    ready_for_checking = part4()
 
+    bc_to_arr = wrap(ready_for_checking, 7)
+
+    errors_arr = []  # with errors
+    temp_str = ''
+
+    for i in bc_to_arr:
+      index_of_error = randint(0, 6)
+      if i[index_of_error] == '1':
+        temp_str = i[:index_of_error] + '0' + i[index_of_error + 1:]
+        errors_arr.append(temp_str)
+      else:
+        temp_str = i[:index_of_error] + '1' + i[index_of_error + 1:]
+        errors_arr.append(temp_str)
+
+    error_binary_code = ''
+    for i in errors_arr:
+        error_binary_code += i
+
+    return error_binary_code
 
 #print(error_binary_code)  # binary code with random errors
-print('\n')
+print('\npart 5\n')
+print(part5())
 
 
 
-# part6
+# # part6
 
-errored_arr = wrap(error_binary_code, 7) # wrap string from part5
+def part6():
 
-#print(errored_arr)
-print('\n')
+    error_binary_code = part5()
 
-syndromes = {
-  #"000": "no error",
-  "001": "6", #r3
-  "010": "5", #r2
-  "011": "3", #i4
-  "100": "4", #r1
-  "101": "0", #i1
-  "110": "2", #i3
-  "111": "1"  #i2
-}
+    errored_arr = wrap(error_binary_code, 7) # wrap string from part5
 
-error_indexes = []
-fixed_arr = [] 
-temp = ''
+    syndromes = {
+      "001": "6", #r3
+      "010": "5", #r2
+      "011": "3", #i4
+      "100": "4", #r1
+      "101": "0", #i1
+      "110": "2", #i3
+      "111": "1"}  #i2
 
-for i in errored_arr:
-    syndrome = ''
+    error_indexes = []
+    fixed_arr = [] 
+    temp = ''
 
-    s1 = str(int(i[4]) ^ int(i[0]) ^ int(i[1]) ^ int(i[2]))
-    s2 = str(int(i[5]) ^ int(i[1]) ^ int(i[2]) ^ int(i[3]))
-    s3 = str(int(i[6]) ^ int(i[0]) ^ int(i[1]) ^ int(i[3]))
+    for i in errored_arr:
+        syndrome = ''
 
-    syndrome += s1 + s2 + s3
+        s1 = str(int(i[4]) ^ int(i[0]) ^ int(i[1]) ^ int(i[2]))
+        s2 = str(int(i[5]) ^ int(i[1]) ^ int(i[2]) ^ int(i[3]))
+        s3 = str(int(i[6]) ^ int(i[0]) ^ int(i[1]) ^ int(i[3]))
+
+        syndrome += s1 + s2 + s3
+        
+        error_index = ''
+
+        for key, value in syndromes.items():
+            if syndrome == key:
+                error_index = value
+
+        error_indexes.append(error_index)
+
+        if i[int(error_index)] == '1':
+            temp = i[:int(error_index)] + '0' + i[int(error_index) + 1:]
+            fixed_arr.append(temp)
+        else:
+            temp = i[:int(error_index)] + '1' + i[int(error_index) + 1:]
+            fixed_arr.append(temp)
+
     
-    error_index = ''
+    final_arr = []
+    tempp = ''
+    for i in fixed_arr:
+        tempp = i[:4]
+        final_arr.append(tempp)
 
-    for key, value in syndromes.items():
-        if syndrome == key:
-            error_index = value
-
-    error_indexes.append(error_index)
-
-    if i[int(error_index)] == '1':
-        temp = i[:int(error_index)] + '0' + i[int(error_index) + 1:]
-        fixed_arr.append(temp)
-    else:
-        temp = i[:int(error_index)] + '1' + i[int(error_index) + 1:]
-        fixed_arr.append(temp)
-
-#print(error_indexes)   
-print('\n')
-#print(fixed_arr)
-print('\n')
-#print(bc_to_arr == fixed_arr) #check if fixed array is the same as original array from part5
-print('\n')
-
-final_arr = []
-tempp = ''
-for i in fixed_arr:
-    tempp = i[:4]
-    final_arr.append(tempp)
-
-#print(final_arr)
-print('\n')
-
-final_str = ''
-for i in final_arr:
-    final_str += i
+    
+    final_str = ''
+    for i in final_arr:
+        final_str += i
 
 
-print(final_str)
-print('\n')
+    return final_str
 
-#print(encoded == final_str) #check if final array is the same as encoded text from part2
-print('\n')
+print('\npart 6\n')
+print(part6())
 
-part3(final_str)
+
+print('\nfinal\n')
+s = part6()
+print(part3(s))
