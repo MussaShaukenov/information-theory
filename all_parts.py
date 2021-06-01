@@ -105,8 +105,13 @@ print(part2())
 #part4
 def part4():
     encoded = part2()
+    if len(encoded) % 4 != 0:
+        number_of_spaces = 4 - (len(encoded) % 4)
+        encoded += '0' * number_of_spaces
+
     split_strings = wrap(encoded, 4)
     result_arr = []
+
     for i in split_strings:
         
         r1 = str(int(i[0]) ^ int(i[1]) ^ int(i[2]))
