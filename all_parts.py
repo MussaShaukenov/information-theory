@@ -98,8 +98,8 @@ def part3(s):
     return decoded  # decoded text
 
 
-print('\npart 2\n')
-print(part2())
+# print('\npart 2\n')
+# print(part2())
 
 
 #part4
@@ -128,8 +128,8 @@ def part4():
 
 
 
-print('\npart4\n')
-print(part4())
+# print('\npart4\n')
+# print(part4())
 
 
 # #  part5 
@@ -159,8 +159,8 @@ def part5():
     return error_binary_code
 
 #print(error_binary_code)  # binary code with random errors
-print('\npart 5\n')
-print(part5())
+# print('\npart 5\n')
+# print(part5())
 
 
 
@@ -224,10 +224,46 @@ def part6():
 
     return final_str
 
-print('\npart 6\n')
-print(part6())
+# print('\npart 6\n')
+# print(part6())
 
 
-print('\nfinal\n')
-s = part6()
-print(part3(s))
+# print('\nfinal\n')
+# s = part6()
+# print(part3(s))
+
+
+def compression_ratio():
+
+
+    with open('hah.txt', 'r') as f:
+            arr1 = list(f.read())
+
+    byte = 0
+
+    unique = unique_dict(freq)
+
+    for key1, value1 in unique.items():
+        for key2, value2 in Counter(arr1).items():
+            if key1 == key2:
+                byte += value2 * len(value1)
+
+    before_compression = byte
+
+    # ratio = compression before / compression after
+
+    after_compression = 0
+
+    text_after_compression = part3(s)
+
+    arr2 = list(text_after_compression)
+
+    for key1, value1 in unique.items():
+        for key2, value2 in Counter(arr2).items():
+            if key1 == key2:
+                after_compression += value2 * len(value1)
+
+    return f'compression ratio: {before_compression//after_compression*100}%'
+
+
+# print(compression_ratio())
