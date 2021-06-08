@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Information Theory</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://kit.fontawesome.com/c30eeb33c7.js" crossorigin="anonymous"></script>
+    <style>
+        body {
+            background-image: url(https://wallpaper-mania.com/wp-content/uploads/2018/09/High_resolution_wallpaper_background_ID_77700406651.jpg);
+            background-size: cover;      
+        }
+        textarea {
+            background-color: cornsilk;
+            width: 400px; 
+            height: 400px;
+        }
+        input {
+            background-color: #F68888;
+            border: 1px solid #F68888;
+            width: 100px;
+            border-radius: 10px;
+            margin-top: 25px;
+            margin-right: 50px;
+            margin-left: 50px;
+        }
+        button {
+            width: 100px;
+            border-radius: 10px;
+            margin-top: 25px;
+            margin-right: 50px;
+            margin-left: 50px;
+        }
+        a {
+            color: greenyellow;
+        }
+        .tab-content {
+            color: coral;
+        }
+        h6 {
+            color:darkcyan;
+        }
+    </style>
+</head>
+<body>
+    
+<div class="container mt-3">
+    
+    <div>
+        <img style="background: snow; border-radius: 20px;"  src="https://moodle.astanait.edu.kz/pluginfile.php/1/core_admin/logo/0x150/1622028045/Astana%20IT%20University%20%284%29.png" alt="">
+    </div>
+    
+    <div style="color: white;">
+        <br>
+        <h2>Information Theory</h2>
+    </div>
+        
+    <br>
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a class="nav-link active" data-toggle="tab" href="#part1">Probabilities</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#part2">Huffman Encoding</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#part3">Decoding</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#part4">Hamming Encoding</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#part5">Errors</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#part6">Fixing</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#part7">BWT</a>
+        </li>
+    </ul>
+
+    <div class="tab-content">
+        <div id="part1" class="container tab-pane active"><br>
+            <h3>Probabilites</h3>
+            <p>List of all unique symbols from the text with their probabilities.</p>
+            <div style="display: flex; flex-wrap: wrap;">
+                <div>
+                    <textarea name="" id="" cols="30" rows="10">
+
+                    </textarea>
+                </div>
+                <div style="width: 20px;">
+
+                </div>
+                <div>
+                    <br>
+                    <br>
+                    <br>
+                    <input type="submit" value="Convert" style="height: 50px;">
+                </div>
+                <div style="width: 20px;">
+
+                </div>
+                <div>
+                    <textarea name="" id="" cols="30" rows="10">
+
+                    </textarea>
+                </div>
+            </div>
+        </div>
+    <div id="part2" class="container tab-pane fade"><br>
+        <h3>Huffman Algorithm</h3>
+        <p>A sequence of binary digits which is encoded by Huffman's theorem.</p>
+        <div style="display: flex; flex-wrap: wrap;">
+            <div>
+                <textarea name="" id="" cols="30" rows="10">
+
+                </textarea>
+            </div>
+            <div style="width: 20px;">
+
+            </div>
+            <div>
+                <br>
+                <br>
+                <br>
+                <input type="submit" value="Convert" style="height: 50px;">
+            </div>
+            <div style="width: 20px;">
+
+            </div>
+            <div>
+                <textarea name="" id="" cols="30" rows="10">
+
+                </textarea>
+            </div>
+        </div>
+    </div>
+    <div id="part3" class="container tab-pane fade"><br>
+        <h3>Decoding Huffman code</h3>
+        <p>A text identical to an initial text after decoding binary sequence.</p>
+        <div style="display: flex; flex-wrap: wrap;">
+            <div>
+                <textarea name="" id="" cols="30" rows="10">
+
+                </textarea>
+            </div>
+            <div style="width: 20px;">
+
+            </div>
+            <div>
+                <br>
+                <br>
+                <br>
+                <input type="submit" value="Convert" style="height: 50px;">
+            </div>
+            <div style="width: 20px;">
+
+            </div>
+            <div>
+                <textarea name="" id="" cols="30" rows="10">
+
+                </textarea>
+            </div>
+        </div>
+    </div>
+    <div id="part4" class="container tab-pane fade"><br>
+        <h3>Hamming Code</h3>
+        <p>Encoded sequence of binary digits ready for error-correction with Hamming's algorithm.</p>
+        <div style="display: flex; flex-wrap: wrap;">
+            <div>
+                <textarea name="" id="" cols="30" rows="10">
+
+                </textarea>
+            </div>
+            <div style="width: 20px;">
+
+            </div>
+            <div>
+                <br>
+                <br>
+                <br>
+                <input type="submit" value="Convert" style="height: 50px;">
+            </div>
+            <div style="width: 20px;">
+
+            </div>
+            <div>
+                <textarea name="" id="" cols="30" rows="10">
+
+                </textarea>
+            </div>
+        </div>
+    </div>
+    <div id="part5" class="container tab-pane fade"><br>
+        <h3>Adding Errors</h3>
+        <p>A sequence of binary digits after Hamming code with artificially created errors.</p>
+        <div style="display: flex; flex-wrap: wrap;">
+            <div>
+                <textarea name="" id="" cols="30" rows="10">
+
+                </textarea>
+            </div>
+            <div style="width: 20px;">
+
+            </div>
+            <div>
+                <br>
+                <br>
+                <br>
+                <input type="submit" value="Convert" style="height: 50px;">
+            </div>
+            <div style="width: 20px;">
+
+            </div>
+            <div>
+                <textarea name="" id="" cols="30" rows="10">
+
+                </textarea>
+            </div>
+        </div>
+    </div>
+    <div id="part6" class="container tab-pane fade"><br>
+        <h3>Decoding Hamming code and Fixing Errors</h3>
+        <p>A sequence of binary digits identical to an output sequence from Part 2.</p>
+        <div style="display: flex; flex-wrap: wrap;">
+            <div>
+                <textarea name="" id="" cols="30" rows="10">
+
+                </textarea>
+            </div>
+            <div style="width: 20px;">
+
+            </div>
+            <div>
+                <br>
+                <br>
+                <br>
+                <input type="submit" value="Convert" style="height: 50px;">
+            </div>
+            <div style="width: 20px;">
+
+            </div>
+            <div>
+                <textarea name="" id="" cols="30" rows="10">
+
+                </textarea>
+            </div>
+        </div>
+    </div>
+    <div id="part7" class="container tab-pane fade"><br>
+        <h3>Burrows–Wheeler transform</h3>
+        <p>Compression algorithm</p>
+        <div style="display: flex; flex-wrap: wrap;">
+            <div>
+                <textarea name="" id="" cols="30" rows="10">
+
+                </textarea>
+            </div>
+            <div style="width: 20px;">
+
+            </div>
+            <div>
+                <br>
+                <br>
+                <br>
+                <button type="submit">
+                    <img src="http://cdn.onlinewebfonts.com/svg/download_70655.png" width="50px" alt="">
+                </button>
+            </div>
+            <div style="width: 20px;">
+
+            </div>
+            <div>
+                <textarea name="" id="" cols="30" rows="10">
+
+                </textarea>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>
+<br>
+<br>
+
+<footer class="text-center text-lg-start bg-dark text-white">
+    <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
+      <div class="container text-center text-md-start mt-5">
+        <div class="row mt-3">
+          <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+            <h6 class="text-uppercase fw-bold mb-4">
+              <i class="fas fa-gem me-3"></i>AITU
+            </h6>
+            <p>
+                Astana IT University is the leading center of competencies for digital transformation in Central Asia, the aim of which is to train highly qualified specialists in the field of digital economy based on interdisciplinary technologies and ensure digital transformation through training, research and successful innovation.
+            </p>
+          </div>
+          
+          <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+            <h6 class="text-uppercase fw-bold mb-4">
+              Useful links
+            </h6>
+            <p>
+                <i class="fab fa-github"></i>
+                <a href="https://github.com/MussaShaukenov/information-theory" target="_blank" class="text-reset">Github</a>
+            </p>
+            <p>
+                <i class="fab fa-instagram"></i>
+                <a href="https://www.instagram.com/astana_it_university/" target="_blank" class="text-reset">Instagram</a>
+            </p>
+            <p>
+                <i class="fas fa-hands-helping"></i>
+                <a href="https://www.instagram.com/sh__kanadilov/" target="_blank" class="text-reset">Supporters</a>
+            </p>
+            <p>
+                <i class="fas fa-question-circle"></i>
+                <a href="https://theuselessweb.com/" target="_blank" class="text-reset">Help</a>
+            </p>
+          </div>
+          <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+            <h6 class="text-uppercase fw-bold mb-4">
+              Contact
+            </h6>
+              <i class="fas fa-envelope me-3"></i>
+              m.shaukenov@astanait.edu.kz
+            </p>
+            <p>
+                <i class="fas fa-envelope me-3"></i>
+                s.aimagambet@astanait.edu.kz
+              </p>
+            <p><i class="fas fa-phone me-3"></i> +7 771 232 45 45</p>
+            <p><i class="fas fa-phone me-3"></i> +7 708 258 23 22</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+      © 2021 Copyright:
+      <a class="text-reset fw-bold" href="https://pointerpointer.com/" target="_blank">Ket na</a>
+    </div>
+  </footer>
+
+</body>
+</html>
