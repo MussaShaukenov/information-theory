@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <style>
+      * {
+          font-family: 'Saira Semi Condensed';
+      }
+      body {
+        background: snow;
+      }
+    
+      textarea {
+        background-color: #eeeeee;
+        opacity: 1;
+        margin-top: 20px;
+        border-radius: 5px;
+      }
+      input[type=submit] {
+          background-color: #F68888;
+          border: 1px solid #F68888;
+          width: 100px;
+          border-radius: 10px;
+          margin-top: 25px;
+          margin-right: 50px;
+          margin-left: 50px;
+      }
+      .nav-link {
+          font-size: 1.2em;
+          font-family: 'Saira Semi Condensed';
+      }
+      hr {
+          background-color: #000;
+          margin-left: 180px;
+          margin-right: 220px;
+      }
+      .footer-container {
+          margin-left: 180px;
+          margin-right: 220px;
+          display: grid;
+          grid-template-columns: 1fr 1fr 1fr;
+          text-align: center;
+      }
+      .footer-container div {
+        font-size: 1.1em;
+      }
+      .footer-desc {
+          display: grid;
+          grid-template-columns: 1fr;
+          grid-template-rows: 1fr 1fr;
+          padding-bottom: 250px;
+      }
+      .footer-desc div {
+          height: 105px;
+          text-align: center;
+          width: 310px;
+      }
+      .footer-links {
+          display: flex;
+          flex-direction: column;
+      }
+      .footer-links img {
+          width: 40px;
+          height: 40px;
+      }
+      a {
+          color: black;
+      }
+      a:hover {
+          text-decoration: none;
+          color: black;
+          cursor: pointer;
+      }
+  </style>
+</head>
+<body>
+<div class="container mt-3">
+    
+    <div>
+        <img src="https://moodle.astanait.edu.kz/pluginfile.php/1/core_admin/logo/0x150/1622028045/Astana%20IT%20University%20%284%29.png" alt=""
+        height="100px" width="200px">
+    </div>
+    
+    <div>
+        <br>
+        <h2>Information Theory</h2>
+    </div>
+        
+    <br>
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a class="nav-link active" data-toggle="tab" href="#part1">Part 1</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#part2">Part 2</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#part3">Part 3</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#part4">Part 4</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#part5">Part 5</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="tab" href="#part6">Part 6</a>
+        </li>
+    </ul>
+
+    <!-- Tab panes -->
+    <div class="tab-content">
+        <div id="part1" class="container tab-pane active"><br>
+            <h3>Part 1</h3>
+            <h5>List of all unique symbols from the text with their probabilities.</h5>
+            <div style="display: flex; flex-wrap: wrap;">
+                <div>
+                    <textarea name="" id="" cols="30" rows="10" style="width: 400px; height: 200px;">
+
+                    </textarea>
+                </div>
+                <div style="width: 20px;">
+
+                </div>
+                <div>
+                    <br>
+                    <br>
+                    <br>
+                    <input type="submit" value="Convert" style="height: 50px;">
+                </div>
+                <div style="width: 20px;">
+
+                </div>
+                <div>
+                    <textarea name="" id="" cols="30" rows="10" style="width: 400px; height: 200px;">
+
+                    </textarea>
+                </div>
+            </div>
+        </div>
+    <div id="part2" class="container tab-pane fade"><br>
+        <h3>Part 2</h3>
+        <h5>A sequence of binary digits which is encoded by Huffman's theorem.</h5>
+        <div style="display: flex; flex-wrap: wrap;">
+            <div>
+                <textarea name="" id="" cols="30" rows="10" style="width: 400px; height: 200px;">
+
+                </textarea>
+            </div>
+            <div style="width: 20px;">
+
+            </div>
+            <div>
+                <br>
+                <br>
+                <br>
+                <input type="submit" value="Convert" style="height: 50px;">
+            </div>
+            <div style="width: 20px;">
+
+            </div>
+            <div>
+                <textarea name="" id="" cols="30" rows="10" style="width: 400px; height: 200px;">
+
+                </textarea>
+            </div>
+        </div>
+    </div>
+    <div id="part3" class="container tab-pane fade"><br>
+        <h3>Part 3</h3>
+        <h5>A text identical to an initial text after decoding binary sequence.</h5>
+        <div style="display: flex; flex-wrap: wrap;">
+            <div>
+                <textarea name="" id="" cols="30" rows="10" style="width: 400px; height: 200px;">
+
+                </textarea>
+            </div>
+            <div style="width: 20px;">
+
+            </div>
+            <div>
+                <br>
+                <br>
+                <br>
+                <input type="submit" value="Convert" style="height: 50px;">
+            </div>
+            <div style="width: 20px;">
+
+            </div>
+            <div>
+                <textarea name="" id="" cols="30" rows="10" style="width: 400px; height: 200px;">
+
+                </textarea>
+            </div>
+        </div>
+    </div>
+    <div id="part4" class="container tab-pane fade"><br>
+        <h3>Part 4</h3>
+        <h5>Encoded sequence of binary digits ready for error-correction with Hamming's algorithm.</h5>
+        <div style="display: flex; flex-wrap: wrap;">
+            <div>
+                <textarea name="" id="" cols="30" rows="10" style="width: 400px; height: 200px;">
+
+                </textarea>
+            </div>
+            <div style="width: 20px;">
+
+            </div>
+            <div>
+                <br>
+                <br>
+                <br>
+                <input type="submit" value="Convert" style="height: 50px;">
+            </div>
+            <div style="width: 20px;">
+
+            </div>
+            <div>
+                <textarea name="" id="" cols="30" rows="10" style="width: 400px; height: 200px;">
+
+                </textarea>
+            </div>
+        </div>
+    </div>
+    <div id="part5" class="container tab-pane fade"><br>
+        <h3>Part 5</h3>
+        <h5>A sequence of binary digits after Hamming code with artificially created errors.</h5>
+        <div style="display: flex; flex-wrap: wrap;">
+            <div>
+                <textarea name="" id="" cols="30" rows="10" style="width: 400px; height: 200px;">
+
+                </textarea>
+            </div>
+            <div style="width: 20px;">
+
+            </div>
+            <div>
+                <br>
+                <br>
+                <br>
+                <input type="submit" value="Convert" style="height: 50px;">
+            </div>
+            <div style="width: 20px;">
+
+            </div>
+            <div>
+                <textarea name="" id="" cols="30" rows="10" style="width: 400px; height: 200px;">
+
+                </textarea>
+            </div>
+        </div>
+    </div>
+    <div id="part6" class="container tab-pane fade"><br>
+        <h3>Part 6</h3>
+        <h5>A sequence of binary digits identical to an output sequence from Part 2.</h5>
+        <div style="display: flex; flex-wrap: wrap;">
+            <div>
+                <textarea name="" id="" cols="30" rows="10" style="width: 400px; height: 200px;">
+
+                </textarea>
+            </div>
+            <div style="width: 20px;">
+
+            </div>
+            <div>
+                <br>
+                <br>
+                <br>
+                <input type="submit" value="Convert" style="height: 50px;">
+            </div>
+            <div style="width: 20px;">
+
+            </div>
+            <div>
+                <textarea name="" id="" cols="30" rows="10" style="width: 400px; height: 200px;">
+
+                </textarea>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>
+
+<br><br>
+<hr>
+
+<br>
+
+<div class="footer-container">
+    <div class="footer-desc">
+        <div>The website is done for the Final Exam of Information Theory</div>
+        <div style="margin-top: -50px"> © All rights are copyright, 2021</div>
+    </div>
+    <div>
+        Contributors: <br>
+        <a href="#">Mussa Shaukenov</a> <br>
+        <a href="#">Sultan Aimagambet</a> 
+    </div>
+    <div class="footer-links">
+        <div>
+            <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="github">
+            <a href="https://github.com/MussaShaukenov/information-theory" target="_blank">GitHub</a>
+        </div>
+        <div>
+            <img src="https://toppng.com/uploads/preview/circle-black-instagram-logo-11609357623eoy0bfkahk.png" alt="insta">
+            <a href="#">Instagram</a>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
+
