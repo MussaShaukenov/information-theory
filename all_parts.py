@@ -1,12 +1,6 @@
 from collections import Counter
+from textwrap import wrap
 from random import randint
-from browser import *
-
-with open('hah.txt') as f:
-    string = f.read()
-    document['p1_1'] <= string
-    document['p2_1'] <= string
-
 
 def part1():
     with open('hah.txt', 'r') as f:
@@ -18,11 +12,8 @@ def part1():
     return d
 
 
-def show1():
-    document['p1_2'] <= str(part1())
-
-
-document['btn1'].bind('click', show1)
+with open('hah.txt') as f:
+    string = f.read()
 
 
 class NodeTree(object):
@@ -49,7 +40,6 @@ def huffman_code_tree(node, left=True, binString=''):
     d.update(huffman_code_tree(r, False, binString + '1'))
     return d
 
-
 freq = part1()
 freq = sorted(freq, key=lambda x: x[1], reverse=True)
 
@@ -69,6 +59,13 @@ huffmanCode = huffman_code_tree(nodes[0][0])
 
 # part2
 
+def unique_dict(freq):
+    unique = {}
+    for (char, _) in freq:
+        unique[char] = str(huffmanCode[char])
+    return unique
+
+
 def part2():
     encoded = ''
     for i in string:
@@ -78,25 +75,7 @@ def part2():
                 
     return encoded  # encoded binary sequence
 
-
-def show2():
-    document['p2_2'] <= part2()
-    document['p3_1'] <= part2()
-    document['p4_1'] <= encoded
-
-
-document['btn2'].bind('click', show2)
-
-
-def unique_dict(freq):
-    unique = {}
-    for (char, _) in freq:
-        unique[char] = str(huffmanCode[char])
-    return unique
-
-
 # part3
-
 
 def part3(s):
 
@@ -116,28 +95,25 @@ def part3(s):
             if i == value:
                 decoded += key
 
-    document['p3_2'] <= decoded
+    return decoded  # decoded text
 
 
-document['btn3'].bind('click', part3)
+# print('\npart 2\n')
+# print(part2())
 
 
-# part4
+#part4
 def part4():
     encoded = part2()
     if len(encoded) % 4 != 0:
         number_of_spaces = 4 - (len(encoded) % 4)
         encoded += '0' * number_of_spaces
 
-    split_strings = []
-
-    while encoded:
-        split_strings.append(encoded[:4])
-        encoded = encoded[4:]
-
+    split_strings = wrap(encoded, 4)
     result_arr = []
 
     for i in split_strings:
+        
         r1 = str(int(i[0]) ^ int(i[1]) ^ int(i[2]))
         r2 = str(int(i[1]) ^ int(i[2]) ^ int(i[3]))
         r3 = str(int(i[0]) ^ int(i[1]) ^ int(i[3]))
@@ -148,64 +124,65 @@ def part4():
     for i in result_arr:
         ready_for_checking += i
 
-    document['p4_2'] <= ready_for_checking  # binary sequence with r1, r2, r3
+    return ready_for_checking  # binary sequence with r1, r2, r3
 
 
-document['btn4'].bind('click', part4)
+
+# print('\npart4\n')
+# print(part4())
 
 
-# part5 
+# #  part5 
 
 def part5():
+
     ready_for_checking = part4()
 
-    bc_to_arr = []
-    while ready_for_checking:
-        bc_to_arr.append(ready_for_checking[:7])
-        ready_for_checking = ready_for_checking[7:]
+    bc_to_arr = wrap(ready_for_checking, 7)
 
     errors_arr = []  # with errors
     temp_str = ''
 
     for i in bc_to_arr:
-        index_of_error = randint(0, 6)
-        if i[index_of_error] == '1':
-            temp_str = i[:index_of_error] + '0' + i[index_of_error + 1:]
-            errors_arr.append(temp_str)
-        else:
-            temp_str = i[:index_of_error] + '1' + i[index_of_error + 1:]
-            errors_arr.append(temp_str)
+      index_of_error = randint(0, 6)
+      if i[index_of_error] == '1':
+        temp_str = i[:index_of_error] + '0' + i[index_of_error + 1:]
+        errors_arr.append(temp_str)
+      else:
+        temp_str = i[:index_of_error] + '1' + i[index_of_error + 1:]
+        errors_arr.append(temp_str)
 
     error_binary_code = ''
     for i in errors_arr:
         error_binary_code += i
 
-    document['p5_2'] <= error_binary_code
+    return error_binary_code
+
+#print(error_binary_code)  # binary code with random errors
+# print('\npart 5\n')
+# print(part5())
 
 
-document['btn5'].bind('click', part5)
 
-# part6
+# # part6
 
 def part6():
+
     error_binary_code = part5()
 
-    errored_arr = []
-    while error_binary_code:
-        errored_arr.append(error_binary_code[:7])
-        error_binary_code = error_binary_code[7:]
+    errored_arr = wrap(error_binary_code, 7) # wrap string from part5
 
     syndromes = {
-        "001": "6",  # r3
-        "010": "5",  # r2
-        "011": "3",  # i4
-        "100": "4",  # r1
-        "101": "0",  # i1
-        "110": "2",  # i3
-        "111": "1"}  # i2
+      "001": "6", #r3
+      "010": "5", #r2
+      "011": "3", #i4
+      "100": "4", #r1
+      "101": "0", #i1
+      "110": "2", #i3
+      "111": "1"}  #i2
 
     error_indexes = []
-    fixed_arr = []
+    fixed_arr = [] 
     temp = ''
 
     for i in errored_arr:
@@ -216,7 +193,7 @@ def part6():
         s3 = str(int(i[6]) ^ int(i[0]) ^ int(i[1]) ^ int(i[3]))
 
         syndrome += s1 + s2 + s3
-
+        
         error_index = ''
 
         for key, value in syndromes.items():
@@ -232,17 +209,61 @@ def part6():
             temp = i[:int(error_index)] + '1' + i[int(error_index) + 1:]
             fixed_arr.append(temp)
 
+    
     final_arr = []
     tempp = ''
     for i in fixed_arr:
         tempp = i[:4]
         final_arr.append(tempp)
 
+    
     final_str = ''
     for i in final_arr:
         final_str += i
 
-    document['p6_2'] <= final_str
+
+    return final_str
+
+# print('\npart 6\n')
+# print(part6())
 
 
-document['btn6'].bind('click', part6)
+# print('\nfinal\n')
+# s = part6()
+# print(part3(s))
+
+
+def compression_ratio():
+
+
+    with open('hah.txt', 'r') as f:
+            arr1 = list(f.read())
+
+    byte = 0
+
+    unique = unique_dict(freq)
+
+    for key1, value1 in unique.items():
+        for key2, value2 in Counter(arr1).items():
+            if key1 == key2:
+                byte += value2 * len(value1)
+
+    before_compression = byte
+
+    # ratio = compression before / compression after
+
+    after_compression = 0
+
+    text_after_compression = part3(s)
+
+    arr2 = list(text_after_compression)
+
+    for key1, value1 in unique.items():
+        for key2, value2 in Counter(arr2).items():
+            if key1 == key2:
+                after_compression += value2 * len(value1)
+
+    return f'compression ratio: {before_compression//after_compression*100}%'
+
+
+# print(compression_ratio())
